@@ -1,7 +1,7 @@
 ---
 
 ### ⚽ **La Liga Standings 2024/25**  
-A simple API to fetch and display the latest **La Liga** standings for the **2024/25** season.
+An API to fetch and display the live **La Liga** standings each season.
 
 ---
 
