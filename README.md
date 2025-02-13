@@ -49,8 +49,8 @@ GET /standings/laliga
 ## 🚀 **Running Locally**
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/soccer-standings.git
-cd soccer-standings
+git clone https://github.com/sohrabosmany/MatchHub-Soccer.git
+cd MatchHub-Soccer
 ```
 ### **2️⃣ Run the Application**
 ```sh
@@ -66,7 +66,7 @@ http://localhost:8080/standings/laliga
 ## 📌 **Upcoming Features**
 - ✅ **Live score updates**  
 - ✅ **Team statistics**  
-- ✅ **Player rankings**  
+- ✅ **Player rankings**
 
 🚀 **Contributions are welcome!** Fork this repo and submit a PR.
 
