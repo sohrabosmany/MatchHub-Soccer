@@ -26,15 +26,6 @@ public class LaligaStandingsService {
     }
 
     public LaLigaStandingsDTO getLaligaStandingsService() {
-//        String rawResponse =
-//                webClient.get()
-//                        .uri(laligaStandingsUrl)
-//                        .header("X-Auth-Token", footballDataToken)
-//                        .retrieve()
-//                        .bodyToMono(String.class)
-//                        .doOnError(error -> System.out.println("Error fetching LaLiga standings: " + error.getMessage()))
-//                        .block();
-//        System.out.println("Raw API Response: " + rawResponse);
 
         return webClient.get()
                 .uri(laligaStandingsUrl)

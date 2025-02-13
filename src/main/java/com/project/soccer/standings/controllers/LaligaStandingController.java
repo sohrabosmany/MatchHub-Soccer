@@ -37,7 +37,8 @@ public class LaligaStandingController {
             if (!teamStandingDTOS.isEmpty()) {
                 List<TeamTableDTO> teamTableDTOS = teamStandingDTOS.get(0).getTable();
                 for (TeamTableDTO teamTableDTO : teamTableDTOS) {
-                    leaguePoints.put(teamTableDTO.getTeam().getName(), teamTableDTO.getPoints());
+                    String key = teamTableDTO.getPosition() +", "+ teamTableDTO.getTeam().getName();
+                    leaguePoints.put(key, teamTableDTO.getPoints());
                 }
             }
         }
