@@ -36,5 +36,9 @@ out/
 ### VS Code ###
 .vscode/
 
+### Node.js ###
+node_modules/
+frontend/node_modules/
+
 ### Resources ###
 src/main/resources/application.properties
