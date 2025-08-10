@@ -1,46 +1,125 @@
-# Getting Started with Create React App
+# ⚽ Soccer Standings Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React TypeScript application for displaying La Liga football standings with real-time data from the Spring Boot backend.
 
-## Available Scripts
+## 🚀 Quick Start
 
-In the project directory, you can run:
+```bash
+# Install dependencies
+npm install
 
-### `npm start`
+# Start development server (http://localhost:3000)
+npm start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Build for production
+npm run build
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Run tests
+npm test
 
-### `npm test`
+# Lint code
+npm run lint
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Auto-fix linting issues
+npm run lint:fix
+```
 
-### `npm run build`
+## 🏗️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React 19** - Modern React with hooks
+- **TypeScript** - Type-safe JavaScript
+- **CSS3** - Custom styles with responsive design
+- **Testing Library** - React component testing
+- **ESLint** - Code linting and formatting
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📁 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── components/           # Reusable React components
+│   ├── StandingsTable.tsx   # Main standings table
+│   └── StandingsTable.css   # Component styles
+├── services/            # API communication
+│   └── api.ts              # Backend API client
+├── types/               # TypeScript definitions
+│   └── standings.ts        # Data type definitions
+├── App.tsx              # Root component
+├── index.tsx            # Application entry point
+└── setupTests.ts        # Test configuration
+```
 
-### `npm run eject`
+## 🎨 Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Real-time standings** - Fetches live La Liga data
+- **Responsive design** - Works on desktop and mobile
+- **Team crests** - Displays official team logos
+- **Loading states** - User-friendly loading indicators
+- **Error handling** - Graceful error management
+- **Type safety** - Full TypeScript support
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔗 API Integration
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The frontend communicates with the Spring Boot backend:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```typescript
+// Fetch standings data
+const data = await api.getLaLigaStandings();
+```
 
-## Learn More
+**Backend endpoint:** `GET http://localhost:8080/standings/laliga`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧪 Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+# Run tests in watch mode
+npm test
+
+# Run tests with coverage
+npm test -- --coverage --watchAll=false
+
+# Run specific test file
+npm test StandingsTable.test.tsx
+```
+
+## 📦 Production Build
+
+```bash
+# Create optimized production build
+npm run build
+
+# Serve locally (requires serve package)
+npm install -g serve
+serve -s build
+```
+
+## 🛠️ Development
+
+### Code Quality
+- **ESLint** configured with React and TypeScript rules
+- **Prettier** for consistent code formatting (via ESLint)
+- **React Testing Library** for component testing
+
+### Environment Variables
+Create `.env` file for configuration:
+```
+REACT_APP_API_URL=http://localhost:8080
+```
+
+### Styling
+- Modern CSS with flexbox and grid
+- Responsive breakpoints for mobile/desktop
+- Team-based color coding for standings positions
+
+## 🚢 Deployment
+
+Build artifacts are generated in `build/` folder:
+- Static HTML, CSS, and JavaScript files
+- Ready for deployment to any static hosting service
+- Works with Netlify, Vercel, GitHub Pages, etc.
+
+## 🤝 Contributing
+
+1. Follow the existing code style
+2. Write tests for new components
+3. Ensure linting passes: `npm run lint`
+4. All tests should pass: `npm test`

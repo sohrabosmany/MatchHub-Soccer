@@ -1,75 +1,102 @@
----
+# ⚽ Soccer Standings Hub
 
-### ⚽ **La Liga Standings 2024/25**  
-An API to fetch and display the live **La Liga** standings each season.
+A full-stack application for displaying La Liga football standings with a Spring Boot backend and React frontend.
 
----
+## 🏗️ Architecture
 
-## 🌍 **League Information**
-| Competition | Country | Code | Start Date | End Date |
-|------------|---------|------|------------|------------|
-| ![La Liga](https://crests.football-data.org/laliga.png) **Primera Division** | 🇪🇸 Spain | PD | **August 18, 2024** | **May 25, 2025** |
+- **Backend**: Spring Boot (Java 17) with WebFlux
+- **Frontend**: React 19 with TypeScript
+- **Build Tools**: Gradle + npm
+- **Code Quality**: Spotless, ESLint, Lombok
+- **CI/CD**: GitHub Actions
 
----
+## 🚀 Quick Start
 
-## 📊 **Current Standings** (Matchday 24)
-| Position | Team | Crest | Played | Won | Draw | Lost | Points | Goals For | Goals Against | Goal Difference |
-|----------|------|------|--------|------|------|------|--------|-----------|--------------|----------------|
-| 1️⃣ | ![Real Madrid](https://crests.football-data.org/86.png) **Real Madrid CF** | 23 | 15 | 5 | 3 | 50 | 51 | 22 | +29 |
-| 2️⃣ | ![Atleti](https://crests.football-data.org/78.png) **Atlético Madrid** | 23 | 14 | 7 | 2 | 49 | 38 | 15 | +23 |
-| 3️⃣ | ![Barça](https://crests.football-data.org/81.png) **FC Barcelona** | 23 | 15 | 3 | 5 | 48 | 64 | 25 | +39 |
-| 4️⃣ | ![Athletic Club](https://crests.football-data.org/77.png) **Athletic Club** | 23 | 12 | 8 | 3 | 44 | 36 | 20 | +16 |
-| 5️⃣ | ![Villarreal](https://crests.football-data.org/94.png) **Villarreal CF** | 23 | 11 | 7 | 5 | 40 | 46 | 34 | +12 |
-| 6️⃣ | ![Rayo Vallecano](https://crests.football-data.org/87.png) **Rayo Vallecano** | 23 | 9 | 8 | 6 | 35 | 27 | 24 | +3 |
-
-🔗 **Full standings available in the API response.**  
-
----
-
-## 🛠 **How to Use the API**
-### 📥 **Get Current Standings**
-**Endpoint:**  
-```http
-GET /standings/laliga
-```
-**Response Example:**
-```json
-{
-    "Real Madrid CF": 50,
-    "Club Atlético de Madrid": 49,
-    "FC Barcelona": 48,
-    "Athletic Club": 44,
-    "Villarreal CF": 40,
-    "Rayo Vallecano de Madrid": 35
-}
-```
-
----
-
-## 🚀 **Running Locally**
-### **1️⃣ Clone the Repository**
-```sh
-git clone https://github.com/sohrabosmany/MatchHub-Soccer.git
-cd MatchHub-Soccer
-```
-### **2️⃣ Run the Application**
-```sh
+### Backend (Spring Boot)
+```bash
+# Run the API server
 ./gradlew bootRun
+
+# Build JAR
+./gradlew build
+
+# Run tests
+./gradlew test
+
+# Check code formatting
+./gradlew spotlessCheck
 ```
-### **3️⃣ Open in Browser**
+
+### Frontend (React)
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Build for production
+npm run build
+
+# Run tests
+npm test
+
+# Lint code
+npm run lint
 ```
-http://localhost:8080/standings/laliga
+
+## 🛠️ Development
+
+### Requirements
+- Java 17+
+- Node.js 18+
+- Football-data.org API token (optional for live data)
+
+### Project Structure
+```
+soccer/
+├── src/main/java/              # Spring Boot backend
+│   ├── controllers/           # REST endpoints
+│   ├── services/             # Business logic  
+│   ├── dtos/                # Data transfer objects (Lombok)
+│   └── config/              # CORS & API configuration
+├── frontend/                 # React TypeScript app
+│   ├── src/components/      # React components
+│   ├── src/services/       # API client
+│   └── src/types/         # TypeScript definitions
+└── .github/workflows/      # CI/CD pipeline
 ```
 
----
+### API Endpoints
+- `GET /standings/laliga` - Fetch current La Liga standings
 
-## 📌 **Upcoming Features**
-- ✅ **Live score updates**  
-- ✅ **Team statistics**  
-- ✅ **Player rankings**
+### Code Quality Tools
+- **Spotless**: Automatic Java code formatting (Google Java Format)
+- **Lombok**: Eliminates DTO boilerplate (82% code reduction)
+- **ESLint**: JavaScript/TypeScript linting
+- **GitHub Actions**: Automated testing and formatting checks
 
-🚀 **Contributions are welcome!** Fork this repo and submit a PR.
+## 🔒 Security
 
----
+- CORS configured for secure cross-origin requests
+- Only GET/OPTIONS methods allowed from frontend
+- API tokens stored in environment variables
 
-Let me know if you want any modifications! 🚀⚽
+## 🚢 Deployment
+
+The application builds to:
+- JAR file for Spring Boot backend
+- Static files for React frontend
+
+Both can be deployed to any cloud platform supporting Java and static hosting.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes (formatting will be checked automatically)
+4. Submit a pull request
+
+The CI/CD pipeline will automatically check code quality and run tests.
