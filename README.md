@@ -23,6 +23,9 @@ A full-stack application for displaying La Liga football standings with a Spring
 # Run tests
 ./gradlew test
 
+#Fix formatting
+./gradlew spotlessCheck
+
 # Check code formatting
 ./gradlew spotlessCheck
 ```
