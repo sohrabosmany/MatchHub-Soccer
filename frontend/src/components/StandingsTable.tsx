@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { TeamStanding } from '../types/standings';
 import { api } from '../services/api';
+import SeasonSelector from './SeasonSelector';
 import './StandingsTable.css';
+import './SeasonSelector.css';
 
 const StandingsTable: React.FC = () => {
   const [standings, setStandings] = useState<TeamStanding[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedSeason, setSelectedSeason] = useState<string>('');
 
   useEffect(() => {
     const fetchStandings = async () => {
       try {
         setLoading(true);
-        const data = await api.getLaLigaStandings();
+        const data = await api.getLaLigaStandings(selectedSeason || undefined);
         setStandings(data);
         setError(null);
       } catch (err) {
@@ -24,7 +27,11 @@ const StandingsTable: React.FC = () => {
     };
 
     fetchStandings();
-  }, []);
+  }, [selectedSeason]);
+
+  const handleSeasonChange = (season: string) => {
+    setSelectedSeason(season);
+  };
 
   if (loading) {
     return <div className="loading">Loading La Liga standings...</div>;
@@ -37,6 +44,10 @@ const StandingsTable: React.FC = () => {
   return (
     <div className="standings-container">
       <h2>La Liga Standings</h2>
+      <SeasonSelector 
+        selectedSeason={selectedSeason}
+        onSeasonChange={handleSeasonChange}
+      />
       <table className="standings-table">
         <thead>
           <tr>

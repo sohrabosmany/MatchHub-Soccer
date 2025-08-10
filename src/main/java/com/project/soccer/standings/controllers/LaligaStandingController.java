@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,8 +24,10 @@ public class LaligaStandingController {
     }
 
     @GetMapping("/laliga")
-    public List<TeamTableDTO> getLaligaStandingsController() {
-        LaLigaStandingsDTO laLigaStandingsDTO = laligaStandingsService.getLaligaStandingsService();
+    public List<TeamTableDTO> getLaligaStandingsController(
+            @RequestParam(value = "season", required = false) String season) {
+        LaLigaStandingsDTO laLigaStandingsDTO =
+                laligaStandingsService.getLaligaStandingsService(season);
 
         if (laLigaStandingsDTO.getTeamStanding() != null) {
             List<TeamStandingDTO> teamStandingDTOS = laLigaStandingsDTO.getTeamStanding();
