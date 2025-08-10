@@ -26,7 +26,8 @@ public class LaligaStandingController {
     @GetMapping("/laliga")
     public List<TeamTableDTO> getLaligaStandingsController(
             @RequestParam(value = "season", required = false) String season) {
-        LaLigaStandingsDTO laLigaStandingsDTO = laligaStandingsService.getLaligaStandingsService(season);
+        LaLigaStandingsDTO laLigaStandingsDTO =
+                laligaStandingsService.getLaligaStandingsService(season);
 
         if (laLigaStandingsDTO.getTeamStanding() != null) {
             List<TeamStandingDTO> teamStandingDTOS = laLigaStandingsDTO.getTeamStanding();

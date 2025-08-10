@@ -11,7 +11,8 @@ public class LaligaStandingsService {
     private String footballDataToken;
 
     private final WebClient webClient;
-    private static final String BASE_URL = "http://api.football-data.org/v4/competitions/PD/standings";
+    private static final String BASE_URL =
+            "http://api.football-data.org/v4/competitions/PD/standings";
 
     public LaligaStandingsService(WebClient.Builder webClient) {
         this.webClient = webClient.build();
@@ -36,7 +37,10 @@ public class LaligaStandingsService {
                 .doOnError(
                         error ->
                                 System.out.println(
-                                        "Error fetching LaLiga standings for season " + season + ": " + error.getMessage()))
+                                        "Error fetching LaLiga standings for season "
+                                                + season
+                                                + ": "
+                                                + error.getMessage()))
                 .block();
     }
 }
