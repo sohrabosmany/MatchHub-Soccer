@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders soccer standings hub', () => {
+test('renders la liga standings', () => {
   render(<App />);
-  const titleElement = screen.getByText(/Soccer Standings Hub/i);
+  const titleElement = screen.getByText(/La Liga Standings/i);
   expect(titleElement).toBeInTheDocument();
 });

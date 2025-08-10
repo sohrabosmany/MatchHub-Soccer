@@ -41,13 +41,18 @@ const StandingsTable: React.FC = () => {
     return <div className="error">{error}</div>;
   }
 
+  // Check if all positions are the same (invalid data) and use index-based numbering
+  const allPositionsAreSame = standings.length > 1 && standings.every(team => team.position === standings[0].position);
+  
   return (
     <div className="standings-container">
-      <h2>La Liga Standings</h2>
-      <SeasonSelector 
-        selectedSeason={selectedSeason}
-        onSeasonChange={handleSeasonChange}
-      />
+      <div className="header-section">
+        <h2>La Liga Standings</h2>
+        <SeasonSelector 
+          selectedSeason={selectedSeason}
+          onSeasonChange={handleSeasonChange}
+        />
+      </div>
       <table className="standings-table">
         <thead>
           <tr>
@@ -64,9 +69,9 @@ const StandingsTable: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {standings.map((team) => (
-            <tr key={team.position}>
-              <td className="position">{team.position}</td>
+          {standings.map((team, index) => (
+            <tr key={`${team.team.name}-${team.position}`}>
+              <td className="position">{allPositionsAreSame ? index + 1 : team.position}</td>
               <td className="team">
                 <div className="team-info">
                   {team.team.crest && (
