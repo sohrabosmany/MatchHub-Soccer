@@ -4,14 +4,12 @@ import com.project.soccer.standings.dtos.LaLigaStandingsDTO;
 import com.project.soccer.standings.dtos.TeamStandingDTO;
 import com.project.soccer.standings.dtos.TeamTableDTO;
 import com.project.soccer.standings.services.LaligaStandingsService;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
 
 @RestController
 @RequestMapping("/standings")

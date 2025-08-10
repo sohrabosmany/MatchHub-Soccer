@@ -42,3 +42,4 @@ frontend/node_modules/
 
 ### Resources ###
 src/main/resources/application.properties
+!src/test/resources/application.properties
